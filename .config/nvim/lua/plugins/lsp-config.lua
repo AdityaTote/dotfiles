@@ -29,6 +29,16 @@ return {
             vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
             vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
             vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
+            local util = require("lspconfig/util")
+            local path = util.path
+            require('lspconfig').pyright.setup {
+                on_attach = on_attach,
+                capabilities = capabilities,
+                before_init = function(_, config)
+                    default_venv_path = path.join(vim.env.HOME, "virtualenvs", "nvim-venv", "bin", "python")
+                    config.settings.python.pythonPath = default_venv_path
+                end,
+            }
         end,
     },
 }

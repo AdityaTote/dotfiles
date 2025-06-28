@@ -20,6 +20,9 @@ local ops={}
 -- loads vim options
 require("vim-options")
 
+-- load vim keymaps
+require("keymaps")
+
 -- loads lazy.nvim
 require("lazy").setup("plugins")
 

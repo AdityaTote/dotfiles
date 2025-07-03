@@ -1,0 +1,26 @@
+[user]
+    name = AdityaTote
+    email = adityatote23@gmail.com
+
+[core]
+    compression = 9
+    whitespace = error
+    preloadindex = true
+
+[advice]
+    statusHints = false
+    addEmptyPathSpec = false
+    pushNonFastForward = false
+
+[status]
+    showUntrackedFiles = all
+    branch = true
+    showStash = true
+
+# general repo
+[url "git@github.com:"]
+    insteadOf = 'gh:'
+
+# Clone repo from AdityaTote
+[url "git@github.com:AdityaTote/"]
+    insteadOf = 'gu:'

@@ -20,3 +20,9 @@ vim.opt.termguicolors = true -- enable true color support
 
 vim.opt.scrolloff = 8 -- minimum number of lines to keep above and below the cursor
 vim.opt.sidescrolloff = 8 --minimum number of columns to keep above and below the cursor
+
+-- Navigate vim panes better
+vim.keymap.set('n', '<c-k>', ':wincmd k<CR>')
+vim.keymap.set('n', '<c-j>', ':wincmd j<CR>')
+vim.keymap.set('n', '<c-h>', ':wincmd h<CR>')
+vim.keymap.set('n', '<c-l>', ':wincmd l<CR>')

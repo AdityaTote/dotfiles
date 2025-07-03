@@ -2,6 +2,8 @@
 # git
 #-----------------------------------------------------------------------------
 alias gint='git init'
+alias gs='git status -s'
+alias gcl='git clone'
 alias ga='git add'
 alias gaa='git add .'
 alias gc='git commit -m'

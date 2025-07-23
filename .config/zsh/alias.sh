@@ -54,9 +54,7 @@ WORKDIR="$HOME/work/code"
 
 alias cdw="cd $WORKDIR"
 alias cdi="cd $WORKDIR/intern"
-alias cdiq="cd $WORKDIR/intern/quick-hire"
 alias cdp="cd $WORKDIR/projects"
-alias cdp2="cd $WORKDIR/projects/web-2"
 alias cdch="cd $WORKDIR/cohert"
 
 #-----------------------------------------------------------------------------

@@ -2,13 +2,13 @@
 # Background
 # -----------------------------------------------
 background-opacity = 0.4
-background = 282c34
-foreground = ffffff
+background = 000000
 
 #------------------------------------------------
 # Font
 # -----------------------------------------------
 font-family = Hack Nerd Font Mono
+font-size = 14
 
 #------------------------------------------------
 # Keybindings

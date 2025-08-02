@@ -19,8 +19,8 @@
 
 # general repo
 [url "git@github.com:"]
-    insteadOf = 'gh:'
+    insteadOf = gh:
 
 # Clone repo from AdityaTote
 [url "git@github.com:AdityaTote/"]
-    insteadOf = 'gu:'
+    insteadOf = gu:

@@ -1,20 +1,10 @@
-#------------------------------------------------
-# Background
-# -----------------------------------------------
-background-opacity = 0.4
-background = 000000
-
-#------------------------------------------------
-# Font
-# -----------------------------------------------
-font-family = Hack Nerd Font Mono
-font-size = 14
-
-#------------------------------------------------
-# Keybindings
-# -----------------------------------------------
-keybind = ctrl+alt+r=reload_config
-keybind = ctrl+alt+up=new_split:up
-keybind = ctrl+alt+down=new_split:down
-keybind = ctrl+alt+left=new_split:left
-keybind = ctrl+alt+right=new_split:right
+theme = catppuccin-mocha
+# theme = GruvboxDark
+# font-family = Meslo LGS Nerd Font Mono
+# font-family = CaskaydiaMono Nerd Font
+font-family = CaskaydiaCove Nerd Font
+font-size = 16
+background-opacity = 0.95
+gtk-titlebar = false
+# custom-shader = /home/chris/bloom.glsl
+#custom-shader = /home/chris/crt.glsl

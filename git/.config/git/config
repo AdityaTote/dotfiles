@@ -24,3 +24,9 @@
 # Clone repo from AdityaTote
 [url "git@github.com:AdityaTote/"]
     insteadOf = gu:
+
+[url "git@github.com:rookie-house/"]
+    insteadOf = gr:
+
+[url "git@github.com:HiFi-mcp/"]
+    insteadOf = ghi:

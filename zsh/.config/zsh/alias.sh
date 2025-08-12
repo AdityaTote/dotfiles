@@ -51,11 +51,15 @@ alias bns='bun start'
 # imp dir to access
 #-----------------------------------------------------------------------------
 WORKDIR="$HOME/work/code"
+HOMEDIR="$HOME"
 
 alias cdw="cd $WORKDIR"
 alias cdi="cd $WORKDIR/intern"
 alias cdp="cd $WORKDIR/projects"
 alias cdch="cd $WORKDIR/cohert"
+alias cdh="cd $WORKDIR/HiFi"
+alias cdr="cd $WORKDIR/rookie-house"
+alias cdd="cd $HOMEDIR/dotfiles"
 
 #-----------------------------------------------------------------------------
 # tmux

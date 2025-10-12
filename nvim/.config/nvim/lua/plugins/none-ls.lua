@@ -11,6 +11,7 @@ return {
                 null_ls.builtins.formatting.isort,
                 null_ls.builtins.completion.spell,
                 null_ls.builtins.completion.eslint_d,
+                null_ls.builtins.completion.clang_format,
                 require("none-ls.diagnostics.eslint"),
             },
         })

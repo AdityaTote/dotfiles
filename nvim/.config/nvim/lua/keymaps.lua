@@ -21,3 +21,6 @@ vim.keymap.set("n", "<leader>x", ":bd<cr>")
 
 -- format code using LSP
 vim.keymap.set("n", "<leader>fmd", vim.lsp.buf.format)
+
+-- generate bin for curretn cpp file
+vim.keymap.set("n", "<leader>rr", ":w<CR>:!g++ % -o %:r && ./%:r<CR>")

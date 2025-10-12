@@ -44,7 +44,7 @@ alias bnit='bun init'
 alias bna='bun add'
 alias bni='bun install'
 alias bnd='bun dev'
-alias bnb='bun build'
+alias bnb='bun run build'
 alias bns='bun start'
 
 #-----------------------------------------------------------------------------
@@ -55,6 +55,7 @@ HOMEDIR="$HOME"
 
 alias cdw="cd $WORKDIR"
 alias cdi="cd $WORKDIR/intern"
+alias ece="cd $WORKDIR/intern/Ec"
 alias cdp="cd $WORKDIR/projects"
 alias cdch="cd $WORKDIR/cohert"
 alias cdh="cd $WORKDIR/HiFi"
@@ -72,3 +73,12 @@ alias ta='t attach'
 # ls
 #-----------------------------------------------------------------------------
 alias ls='ls --color'
+
+#-----------------------------------------------------------------------------
+# nvidia specific applications (high performance)
+#   --------------------------------------------------------------------------
+alias cursor='/usr/share/cursor/cursor'
+alias coh='prime-run code'
+alias cuh='prime-run cursor'
+alias hzen='prime-run zen-browser'
+alias hzed='prime-run zed'

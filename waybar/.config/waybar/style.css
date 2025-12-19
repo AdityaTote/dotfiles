@@ -18,6 +18,7 @@ window#waybar {
 #bluetooth,
 #network,
 #pulseaudio,
+#memory,
 #cpu,
 #battery,
 #backlight,
@@ -173,6 +174,17 @@ window#waybar {
 }
 
 #pulseaudio:hover {
+	background: @surface1;
+	border-color: @surface2;
+}
+
+/* Memory */
+#memory {
+	padding: 0px 6px;
+	color: @pink;
+}
+
+#memory:hover {
 	background: @surface1;
 	border-color: @surface2;
 }

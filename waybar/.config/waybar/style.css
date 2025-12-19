@@ -20,6 +20,7 @@ window#waybar {
 #pulseaudio,
 #memory,
 #cpu,
+#temperature,
 #battery,
 #backlight,
 #custom-expand-icon {
@@ -197,6 +198,20 @@ window#waybar {
 #cpu:hover {
 	background: @surface1;
 	border-color: @surface2;
+}
+
+/* Temperature */
+#temperature {
+	color: @peach;
+}
+
+#temperature:hover {
+	background: @surface1;
+	border-color: @surface2;
+}
+
+#temperature.critical {
+	color: @red;
 }
 
 /* Battery */

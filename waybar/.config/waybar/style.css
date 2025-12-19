@@ -1,181 +1,250 @@
-@import "mocha.css";
+@import "color/mocha.css";
 
-/* Global Styles */
 * {
-	font-family: "MesloLGS Nerd Font Mono Bold";
-	font-size: 16px;
+	font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free", sans-serif;
+	font-size: 14px;
+	font-weight: 600;
 	min-height: 0;
-	font-weight: bold;
 }
 
 window#waybar {
 	background: transparent;
-	color: #cdd6f4;
-	transition: background-color 0.1s ease-in-out;
 }
 
-button {
-	box-shadow: inset 0 -3px transparent;
-	border: none;
-	border-radius: 0;
-}
-
-button:hover {
-	background: inherit;
-	color: #cba6f7;
-	border-top: 2px solid #cba6f7;
+#workspaces,
+#clock,
+#custom-media,
+#tray,
+#bluetooth,
+#network,
+#pulseaudio,
+#cpu,
+#battery,
+#backlight,
+#custom-expand-icon {
+	background: @base;
+	color: @text;
+	padding: 0px 6px;
+	margin: 4px 3px;
+	border-radius: 7px;
+	border: 2px solid @surface0;
+	transition: all 0.3s ease;
 }
 
 /* Workspaces */
+#workspaces {
+	padding: 0px 5px;
+	margin-left: 8px;
+}
+
 #workspaces button {
-	padding: 0 4px;
-	margin: 0 2px;
-	border-radius: 6px;
+	padding: 0px 6px;
+	margin: 3px 3px;
+	color: @overlay1;
+	background: transparent;
+	border-radius: 8px;
+	transition: all 0.3s ease;
+	font-size: 16px;
 }
 
-#workspaces button.urgent {
-	background-color: #f38ba8;
-}
-
-/* Per-workspace icon colors */
-#workspaces button:nth-child(1) {
-	color: #a6e3a1;
-}
-#workspaces button:nth-child(2) {
-	color: #89b4fa;
-}
-#workspaces button:nth-child(3) {
-	color: #f9e2af;
-}
-#workspaces button:nth-child(4) {
-	color: #cba6f7;
-}
-#workspaces button:nth-child(5) {
-	color: #f5c2e7;
-}
-
-#workspaces button.active,
-#workspaces button.focused {
-	background-color: rgba(0, 0, 0, 0.3);
-	border-top: 2px solid currentColor;
-}
-
-/* Modules Padding */
-#pulseaudio,
-#clock,
-#battery,
-#cpu,
-#memory,
-#disk,
-#temperature,
-#backlight,
-#wireplumber,
-#tray,
-#network,
-#mode,
-#scratchpad,
-#custom-vpn,
-#mpd,
-#power-profiles-daemon,
-#keyboard-state,
-#custom-power {
-	margin: 2px 4px;
-	padding: 0 6px;
-	color: #cdd6f4;
-}
-
-/* Colors per module */
-#clock {
-	color: #eba0ac;
-}
-
-#clock.date {
-	color: #cba6f7;
-}
-
-#pulseaudio {
-	color: #89b4fa;
-}
-
-#pulseaudio.muted {
-	color: #f38ba8; /* Different color for muted state */
-}
-
-#pulseaudio.bluetooth {
-	color: #b4befe; /* Different color for bluetooth audio */
-}
-
-#network {
-	color: #f9e2af;
-}
-
-#battery {
-	color: #a6e3a1;
-}
-
-#idle_inhibitor {
-	margin-right: 12px;
-	color: #7cb342;
-}
-
-#idle_inhibitor.activated {
-	color: #f38ba8;
-}
-
-#custom-vpn {
-	color: #b4befe;
-	border-radius: 15px;
-}
-
-/* Remove margins when workspaces are first/last */
-.modules-left > widget:first-child > #workspaces {
-	margin-left: 0;
-}
-.modules-right > widget:last-child > #workspaces {
-	margin-right: 0;
-}
-
-/* google calender widget css  */
-#custom-gcal {
-	color: #f0c674;
+#workspaces button.active {
+	color: @blue;
+	background: @surface0;
 	font-weight: bold;
 }
 
-/* Additional module colors */
-#cpu {
-	color: #fab387;
+#workspaces button:hover {
+	color: @lavender;
+	background: @surface1;
 }
 
-#memory {
-	color: #f5c2e7;
+#workspaces button.urgent {
+	color: @red;
+	background: @surface0;
 }
 
-#temperature {
-	color: #f38ba8;
+/* Clock */
+#clock {
+	color: @lavender;
+	font-weight: bold;
+	background: @surface0;
+	border-color: @surface1;
+	padding: 0px 6px;
+	font-size: 15px;
 }
 
-#backlight {
-	color: #f9e2af;
+#clock:hover {
+	background: @surface1;
+	border-color: @surface2;
 }
 
-#mpd {
-	color: #89dceb;
+/* Media */
+#custom-media {
+	color: @green;
+	background: @surface0;
+	border-color: @surface1;
+	padding: 0px 16px;
+	min-width: 100px;
 }
 
-#power-profiles-daemon {
-	color: #a6e3a1;
+#custom-media:hover {
+	background: @surface1;
+	border-color: @surface2;
 }
 
-#keyboard-state {
-	color: #cba6f7;
+#custom-media.paused {
+	color: @overlay1;
 }
 
-#custom-power {
-	color: #f38ba8;
-	font-size: 20px;
-	padding: 0 10px;
+/* Tray Expander Group */
+#custom-expand-icon {
+	padding: 0px 10px;
+	font-size: 14px;
+	color: @blue;
+	background: @surface0;
+	border-color: @surface1;
 }
 
 #tray {
-	color: #cdd6f4;
+	background: @surface0;
+	border-color: @surface1;
+	padding: 0px 12px;
+}
+
+#tray > .passive {
+	-gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+	-gtk-icon-effect: highlight;
+	color: @red;
+}
+
+/* Bluetooth */
+#bluetooth {
+	color: @blue;
+	font-size: 15px;
+}
+
+#bluetooth.disabled {
+	color: @overlay0;
+}
+
+#bluetooth.connected {
+	color: @green;
+}
+
+#bluetooth:hover {
+	background: @surface1;
+	border-color: @surface2;
+}
+
+/* Network */
+#network {
+	color: @sky;
+	font-size: 15px;
+}
+
+#network.disconnected {
+	color: @overlay0;
+}
+
+#network.wifi {
+	color: @teal;
+}
+
+#network.ethernet {
+	color: @green;
+}
+
+#network:hover {
+	background: @surface1;
+	border-color: @surface2;
+}
+
+/* Pulseaudio */
+#pulseaudio {
+	color: @peach;
+	font-size: 15px;
+}
+
+#pulseaudio.muted {
+	color: @overlay0;
+}
+
+#pulseaudio:hover {
+	background: @surface1;
+	border-color: @surface2;
+}
+
+/* CPU */
+#cpu {
+	color: @mauve;
+}
+
+#cpu:hover {
+	background: @surface1;
+	border-color: @surface2;
+}
+
+/* Battery */
+#battery {
+	color: @green;
+}
+
+#battery.charging,
+#battery.plugged {
+	color: @yellow;
+}
+
+#battery.warning:not(.charging) {
+	color: @peach;
+	background: @surface0;
+}
+
+#battery.critical:not(.charging) {
+	color: @red;
+	background: @surface0;
+	animation: blink 1s ease-in-out infinite;
+}
+
+#battery:hover {
+	background: @surface1;
+	border-color: @surface2;
+}
+
+@keyframes blink {
+	from {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.5;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+/* Backlight */
+#backlight {
+	color: @yellow;
+	margin-right: 8px;
+}
+
+#backlight:hover {
+	background: @surface1;
+	border-color: @surface2;
+}
+
+/* Tooltips */
+tooltip {
+	background: @base;
+	border: 2px solid @surface1;
+	border-radius: 10px;
+	color: @text;
+}
+
+tooltip label {
+	color: @text;
+	padding: 5px;
 }

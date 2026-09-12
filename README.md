@@ -34,6 +34,7 @@ dotfiles/
 ├── hyprpaper/       # Hyprpaper wallpaper daemon config
 ├── kitty/           # Kitty terminal config
 ├── nvim/            # Neovim configuration
+├── sddm/            # Boot login screen theme
 ├── tmux/            # Tmux configuration
 ├── waybar/          # Waybar status bar config
 ├── wofi/            # Wofi launcher config
@@ -78,6 +79,12 @@ stow kitty
 stow nvim
 stow zsh
 # ... repeat for other directories
+```
+
+The SDDM boot theme must be copied to a system directory instead of stowed because the SDDM user cannot read a private home directory:
+
+```bash
+sudo sh sddm/install.sh
 ```
 
 #### Manual Symlinking

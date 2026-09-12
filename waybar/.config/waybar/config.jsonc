@@ -2,20 +2,16 @@
 	"reload_style_on_change": true,
 	"layer": "top",
 	"position": "top",
-	"spacing": 0,
-	"height": 26,
-	"modules-left": ["hyprland/workspaces"],
+	"spacing": 4,
+	"height": 34,
+	"modules-left": ["hyprland/workspaces", "hyprland/window"],
 	"modules-center": ["clock", "custom/media"],
 	"modules-right": [
 		"group/tray-expander",
-		"bluetooth",
-		"network",
-		"battery",
-		"pulseaudio",
-		"memory",
-		"cpu",
-		"backlight",
-		"temperature"
+		"group/connectivity",
+		"group/audio",
+		"group/system",
+		"group/session"
 	],
 	"hyprland/workspaces": {
 		"on-click": "activate",
@@ -31,14 +27,19 @@
 			"7": "7",
 			"8": "8",
 			"9": "9",
-			"10": "0",
-			"active": "󱓻"
+			"10": "0"
 		}
 	},
+	"hyprland/window": {
+		"format": "{title}",
+		"max-length": 30,
+		"separate-outputs": true,
+		"tooltip-format": "{class}\n{title}"
+	},
 	"clock": {
-		"format": "{:L%A %H:%M}",
-		"format-alt": "{:L%d %B %Y}",
-		"tooltip": false
+		"format": "{:L%H:%M}",
+		"format-alt": "{:L%a %d %b %Y}",
+		"tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>"
 	},
 	"custom/media": {
 		"format": "{}",
@@ -53,12 +54,12 @@
 		"exec": "$HOME/.config/waybar/script/media.py 2> /dev/null"
 	},
 	"custom/expand-icon": {
-		"format": "",
+		"format": "󰅀",
 		"tooltip": false
 	},
 	"tray": {
-		"icon-size": 12,
-		"spacing": 17
+		"icon-size": 15,
+		"spacing": 8
 	},
 	"group/tray-expander": {
 		"orientation": "inherit",
@@ -68,12 +69,41 @@
 		},
 		"modules": ["custom/expand-icon", "tray"]
 	},
-	"bluetooth": {
-		"format": "",
-		"format-disabled": "󰂲",
-		"format-connected": "󰂱",
-		"format-no-controller": "",
-		"tooltip-format": "Devices connected: {num_connections}"
+	"group/connectivity": {
+		"orientation": "inherit",
+		"modules": ["custom/bluetooth", "network"]
+	},
+	"group/audio": {
+		"orientation": "inherit",
+		"modules": ["pulseaudio", "pulseaudio#microphone"]
+	},
+	"group/system": {
+		"orientation": "inherit",
+		"modules": ["memory", "cpu", "custom/gpu", "backlight", "temperature", "battery"]
+	},
+	"group/session": {
+		"orientation": "inherit",
+		"modules": ["custom/recording", "custom/idle-inhibitor", "custom/notification", "custom/power"]
+	},
+	"custom/recording": {
+		"exec": "bash $HOME/.config/waybar/script/recording.sh",
+		"return-type": "json",
+		"interval": 2,
+		"tooltip": true
+	},
+	"custom/idle-inhibitor": {
+		"exec": "bash $HOME/.config/waybar/script/idle_inhibitor.sh status",
+		"return-type": "json",
+		"interval": 2,
+		"on-click": "bash $HOME/.config/waybar/script/idle_inhibitor.sh settings",
+		"on-click-right": "bash $HOME/.config/waybar/script/idle_inhibitor.sh toggle"
+	},
+	"custom/bluetooth": {
+		"exec": "bash $HOME/.config/waybar/script/bluetooth.sh status",
+		"return-type": "json",
+		"interval": 2,
+		"on-click": "blueman-manager",
+		"on-click-right": "bash $HOME/.config/waybar/script/bluetooth.sh toggle"
 	},
 	"network": {
 		"format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
@@ -81,52 +111,110 @@
 		"format-wifi": "{icon}",
 		"format-ethernet": "󰀂",
 		"format-disconnected": "󰤮",
-		"tooltip-format-wifi": "{essid}",
-		"tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
-		"tooltip-format-disconnected": "Disconnected",
+		"tooltip-format-wifi": "{essid}  ({signalStrength}%)\nDown {bandwidthDownBytes}  Up {bandwidthUpBytes}\nLeft: connections  •  Right: Wi-Fi on/off",
+		"tooltip-format-ethernet": "Ethernet: {ifname}\nDown {bandwidthDownBytes}  Up {bandwidthUpBytes}",
+		"tooltip-format-disconnected": "Network disconnected",
+		"on-click": "bash $HOME/.config/waybar/script/wifi.sh settings",
+		"on-click-right": "bash $HOME/.config/waybar/script/wifi.sh toggle",
 		"interval": 3,
 		"spacing": 1
 	},
 	"battery": {
-		"format": "{capacity}% {icon}",
-		"format-charging": "{capacity}% {icon}",
-		"format-plugged": "",
+		"format": "{icon}  {capacity}%",
+		"format-charging": "{icon}  {capacity}%",
+		"format-plugged": "󰚥  {capacity}%",
 		"format-icons": {
 			"charging": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"],
 			"default": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
 		},
-		"format-full": "󰂅",
-		"tooltip-format-discharging": "{power:>1.0f}W↓ {capacity}%",
-		"tooltip-format-charging": "{power:>1.0f}W↑ {capacity}%",
+		"format-full": "󰁹  Full",
+		"tooltip-format-discharging": "Battery {capacity}%\nUsing {power:>1.1f} W  •  {timeTo} remaining",
+		"tooltip-format-charging": "Battery {capacity}%\nCharging at {power:>1.1f} W  •  {timeTo} until full",
 		"interval": 5,
+		"on-click": "wezterm start --class htop -- htop",
+		"on-click-right": "true",
 		"states": {
 			"warning": 20,
 			"critical": 10
 		}
 	},
 	"pulseaudio": {
-		"format": "{volume}% {icon}",
-		"tooltip-format": "Playing at {volume}%",
+		"format": "{icon}  {volume}%",
+		"tooltip-format": "Volume {volume}%\n{desc}",
 		"scroll-step": 5,
-		"format-muted": "",
+		"format-muted": "󰖁",
+		"on-click": "pavucontrol -t 3",
+		"on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
 		"format-icons": {
 			"default": ["", "", ""]
 		}
 	},
+	"pulseaudio#microphone": {
+		"format": "{format_source}",
+		"format-source": "",
+		"format-source-muted": "  muted",
+		"tooltip-format": "Microphone: {source_desc}\nLeft: input settings  •  Right: mute",
+		"scroll-step": 5,
+		"on-click": "pavucontrol -t 4",
+		"on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+	},
 	"memory": {
 		"interval": 10,
-		"format": "{percentage}% ",
-		"tooltip-format": "Memory: {used:0.1f}GiB / {total:0.1f}GiB"
+		"format": "  {percentage}%",
+		"tooltip-format": "Memory {percentage}%\n{used:0.1f} GiB / {total:0.1f} GiB\nClick to open htop",
+		"on-click": "wezterm start --class htop -- htop",
+		"on-click-right": "true"
 	},
 	"cpu": {
 		"interval": 10,
-		"format": "{usage}% 󰍛"
+		"format": "  {usage}%",
+		"tooltip-format": "CPU usage: {usage}%\nClick to open htop",
+		"on-click": "wezterm start --class htop -- htop",
+		"on-click-right": "true"
+	},
+	"custom/gpu": {
+		"exec": "bash $HOME/.config/waybar/script/gpu.sh",
+		"return-type": "json",
+		"interval": 10,
+		"on-click": "wezterm start --class htop -- htop",
+		"on-click-right": "bash $HOME/.config/waybar/script/gpu.sh toggle"
 	},
 	"backlight": {
-		"format": "{percent}% {icon}",
-		"format-icons": ["", ""]
+		"format": "{icon}  {percent}%",
+		"format-icons": ["󰃞", "󰃟", "󰃠"],
+		"tooltip-format": "Brightness: {percent}%",
+		"on-click": "wezterm start --class htop -- htop",
+		"on-click-right": "true"
 	},
 	"temperature": {
-		"format": "{temperatureC}°C "
+		"critical-threshold": 80,
+		"format": "  {temperatureC}°",
+		"format-critical": "  {temperatureC}°",
+		"tooltip-format": "Temperature: {temperatureC}°C",
+		"on-click": "wezterm start --class htop -- htop",
+		"on-click-right": "true"
+	},
+	"custom/notification": {
+		"exec": "swaync-client -swb",
+		"return-type": "json",
+		"format": "{icon}",
+		"format-icons": {
+			"notification": "󱅫",
+			"none": "󰂚",
+			"dnd-notification": "󰂛",
+			"dnd-none": "󰂛",
+			"inhibited-notification": "󰂛",
+			"inhibited-none": "󰂛",
+			"dnd-inhibited-notification": "󰂛",
+			"dnd-inhibited-none": "󰂛"
+		},
+		"on-click": "swaync-client -t -sw",
+		"on-click-right": "swaync-client -d -sw",
+		"escape": true
+	},
+	"custom/power": {
+		"format": "󰐥",
+		"tooltip-format": "Power menu",
+		"on-click": "bash $HOME/.config/waybar/script/power_menu.sh"
 	}
 }

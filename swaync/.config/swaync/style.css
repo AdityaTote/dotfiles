@@ -1,0 +1,188 @@
+* {
+	font-family: "Hack Nerd Font", sans-serif;
+	font-size: 14px;
+}
+
+notificationwindow,
+blankwindow,
+.blank-window,
+.floating-notifications {
+	background: transparent;
+}
+
+.control-center {
+	background: #090b10;
+	border: 1px solid #2a3445;
+	border-radius: 4px;
+	color: #c0caf5;
+	padding: 8px;
+}
+
+.control-center .control-center-list {
+	background: transparent;
+}
+
+.control-center .control-center-list-placeholder {
+	color: #737da0;
+}
+
+.notification-row {
+	background: transparent;
+	outline: none;
+}
+
+.notification-row:focus {
+	background: transparent;
+}
+
+.notification-row .notification-background {
+	padding: 4px 2px;
+}
+
+.notification-row .notification-background .notification {
+	background: #11151d;
+	border: 1px solid #2a3445;
+	border-radius: 3px;
+	box-shadow: none;
+	padding: 0;
+}
+
+.notification-group,
+.notification-group:focus,
+.notification-group.collapsed,
+.notification-group.collapsed.not-expanded {
+	background: transparent;
+	box-shadow: none;
+	opacity: 1;
+}
+
+.notification-group.collapsed .notification-row:not(:last-child) {
+	opacity: 1;
+}
+
+.notification-group.collapsed .notification-row:not(:last-child) .notification-default-action,
+.notification-group.collapsed .notification-row:not(:last-child) .notification-action {
+	opacity: 1;
+}
+
+.notification-row .notification-background .notification.critical {
+	border-color: #f7768e;
+}
+
+.notification-default-action {
+	background: transparent;
+	border: none;
+	border-radius: 2px;
+	box-shadow: none;
+	color: #c0caf5;
+	margin: 0;
+	padding: 8px;
+}
+
+.notification-default-action:hover,
+.notification-action:hover {
+	background: #181e29;
+}
+
+.notification-content {
+	background: transparent;
+	padding: 2px;
+}
+
+.notification-content .image {
+	-gtk-icon-size: 42px;
+	border-radius: 2px;
+	margin-right: 8px;
+}
+
+.notification-content .app-icon {
+	-gtk-icon-size: 18px;
+}
+
+.notification-content .summary {
+	color: #7dcfff;
+	font-weight: 700;
+}
+
+.notification-content .body {
+	color: #c0caf5;
+	font-weight: 500;
+}
+
+.notification-content .time {
+	color: #737da0;
+	font-size: 12px;
+	margin-right: 24px;
+}
+
+.close-button {
+	background: transparent;
+	border: none;
+	border-radius: 2px;
+	box-shadow: none;
+	color: #737da0;
+	margin: 6px;
+	min-height: 22px;
+	min-width: 22px;
+	padding: 0;
+}
+
+.close-button:hover {
+	background: #f7768e;
+	color: #090b10;
+}
+
+.notification-alt-actions {
+	background: transparent;
+	padding: 4px;
+}
+
+.notification-action {
+	background: #181e29;
+	border: 1px solid #2a3445;
+	border-radius: 2px;
+	color: #c0caf5;
+	margin: 3px;
+}
+
+.widget {
+	margin: 6px 4px;
+	padding: 6px;
+}
+
+.widget-title > label {
+	color: #7aa2f7;
+	font-size: 18px;
+	font-weight: 700;
+}
+
+.widget-title > button {
+	background: #181e29;
+	border: 1px solid #2a3445;
+	border-radius: 2px;
+	color: #c0caf5;
+}
+
+.widget-title > button:hover {
+	background: #f7768e;
+	color: #090b10;
+}
+
+.widget-dnd label {
+	color: #c0caf5;
+}
+
+.widget-dnd switch {
+	background: #181e29;
+	border: 1px solid #2a3445;
+	border-radius: 3px;
+}
+
+.widget-dnd switch:checked {
+	background: #7aa2f7;
+}
+
+.widget-dnd switch slider {
+	background: #c0caf5;
+	border-radius: 2px;
+}

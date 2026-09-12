@@ -10,7 +10,7 @@ return {
             level = "INFO",       -- default minimum level to display
             render = "default",
             stages = "fade_in_slide_out", -- or "slide", "static", "fade_in_slide_out"
-            timeout = 800,
+            timeout = 100,
             top_down = true,
             fps = 144,
         })

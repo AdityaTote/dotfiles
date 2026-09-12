@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=Krita
+GenericName=Digital Painting
+Comment=Adaptive Intel/NVIDIA digital painting
+Exec=/home/reek/.local/bin/adaptive-gpu render /usr/bin/krita %F
+Icon=krita
+Terminal=false
+Type=Application
+Categories=Qt;KDE;Graphics;2DGraphics;RasterGraphics;
+StartupNotify=true
+StartupWMClass=krita
+X-KDE-NativeMimeType=application/x-krita
+InitialPreference=99

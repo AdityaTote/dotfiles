@@ -1,3 +1,7 @@
+
+alias stfu='shutdown now'
+alias td='todo-cli today'
+
 #-----------------------------------------------------------------------------
 # git
 #-----------------------------------------------------------------------------
@@ -61,6 +65,7 @@ alias cdch="cd $WORKDIR/cohert"
 alias cdh="cd $WORKDIR/HiFi"
 alias cdr="cd $WORKDIR/rookie-house"
 alias cdd="cd $HOMEDIR/dotfiles"
+alias cdv='cd ~/.docker/volumes'
 
 #-----------------------------------------------------------------------------
 # tmux
@@ -75,10 +80,34 @@ alias ta='t attach'
 alias ls='ls --color'
 
 #-----------------------------------------------------------------------------
-# nvidia specific applications (high performance)
-#   --------------------------------------------------------------------------
+# adaptive GPU applications
+#-----------------------------------------------------------------------------
 alias cursor='/usr/share/cursor/cursor'
-alias coh='prime-run code'
-alias cuh='prime-run cursor'
-alias hzen='prime-run zen-browser'
-alias hzed='prime-run zed'
+alias coh='code'
+alias cuh='cursor'
+alias hzen='zen-browser'
+alias hzed='zed'
+alias obs='adaptive-gpu render /usr/bin/obs'
+alias krita='adaptive-gpu render /usr/bin/krita'
+alias ollama='adaptive-gpu compute /usr/bin/ollama'
+
+#-----------------------------------------------------------------------------
+# gen
+#-----------------------------------------------------------------------------
+alias nv='nvim'
+alias clp='$HOME/.config/cache_cleanup.sh'
+alias sv='source .venv/bin/activate'
+
+#-----------------------------------------------------------------------------
+# ollama
+#-----------------------------------------------------------------------------
+alias ola-st='adaptive-ollama start'
+alias ola-sp='adaptive-ollama stop'
+alias ola-su='adaptive-ollama status'
+
+#-----------------------------------------------------------------------------
+# docker
+#-----------------------------------------------------------------------------
+alias dock-st="sudo systemctl start docker"
+alias dock-sp="sudo systemctl stop docker.service docker.socket"
+alias dock-su="systemctl status docker"

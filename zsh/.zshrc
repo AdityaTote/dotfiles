@@ -1,6 +1,7 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
+export EDITOR="nvim"
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -19,6 +20,9 @@ source ~/.config/zsh/style.sh
 
 # alias
 source ~/.config/zsh/alias.sh
+
+# edit buffer
+source ~/.config/zsh/edit_buffer.sh
 
 eval "$(fzf --zsh)"
 
@@ -55,3 +59,14 @@ if [ -f '/home/reek/packages/google-cloud-sdk/completion.zsh.inc' ]; then . '/ho
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+. "$HOME/.aiken/bin/env"
+export PATH="$PATH:$HOME/go/bin"
+export DOCKER_BUILDKIT=1
+export COMPOSE_DOCKER_CLI_BUILD=1
+export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
+
+export OPENAI_API_BASE=http://localhost:11434/v1
+export OPENAI_API_KEY=ollama
+export OPENAI_MODEL=qwen2.5-coder
+export PATH="$HOME/.cargo/bin:$PATH"

@@ -8,7 +8,7 @@ return {
     },
     lazy = true,                                                            -- Lazy load for better performance
     cmd = { "Neotree" },                                                    -- Load when these commands are run
-    keys = { "<C-b>", "<leader>e" },                                        -- Load when these keys are pressed
+    keys = { "<leader>b", "<leader>e" },                                        -- Load when these keys are pressed
     opts = {
         sources = { "filesystem", "buffers", "git_status", "diagnostics" }, -- Enable more sources
         window = {
@@ -44,7 +44,7 @@ return {
         require("neo-tree").setup(opts)
 
         -- Toggle Neo-tree
-        vim.keymap.set("n", "<C-b>", function()
+        vim.keymap.set("n", "<leader>b", function()
             vim.cmd("Neotree toggle right")
         end, { desc = "Toggle Neo-tree", noremap = true, silent = true })
 

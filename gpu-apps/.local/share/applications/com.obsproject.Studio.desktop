@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Name=OBS Studio
+GenericName=Streaming/Recording Software
+Comment=Adaptive Intel/NVIDIA streaming and recording
+Exec=/home/reek/.local/bin/adaptive-gpu render /usr/bin/obs
+Icon=com.obsproject.Studio
+Terminal=false
+Type=Application
+Categories=AudioVideo;Recorder;
+StartupNotify=true
+StartupWMClass=obs

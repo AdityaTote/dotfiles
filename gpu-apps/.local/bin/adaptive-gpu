@@ -1,0 +1,51 @@
+#!/bin/bash
+
+state_file="${XDG_RUNTIME_DIR:-/tmp}/waybar-gpu-monitor-disabled"
+
+if [[ $# -eq 1 && "$1" == status ]]; then
+	if [[ -e "$state_file" ]]; then
+		printf '%s\n' integrated
+	else
+		printf '%s\n' nvidia
+	fi
+	exit 0
+fi
+
+if [[ $# -lt 2 ]]; then
+	printf 'Usage: %s {render|compute} command [args...]\n' "$0" >&2
+	exit 2
+fi
+
+mode=$1
+shift
+
+if [[ -e "$state_file" ]]; then
+	case "$mode" in
+		render)
+			exec "$@"
+			;;
+		compute)
+			exec env CUDA_VISIBLE_DEVICES=-1 ROCR_VISIBLE_DEVICES=-1 \
+				GGML_VK_VISIBLE_DEVICES=-1 "$@"
+			;;
+		*)
+			printf 'Unknown GPU mode: %s\n' "$mode" >&2
+			exit 2
+			;;
+	esac
+else
+	case "$mode" in
+		render)
+			exec env __NV_PRIME_RENDER_OFFLOAD=1 \
+				__GLX_VENDOR_LIBRARY_NAME=nvidia \
+				__VK_LAYER_NV_optimus=NVIDIA_only "$@"
+			;;
+		compute)
+			exec "$@"
+			;;
+		*)
+			printf 'Unknown GPU mode: %s\n' "$mode" >&2
+			exit 2
+			;;
+	esac
+fi

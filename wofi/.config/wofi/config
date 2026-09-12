@@ -1,0 +1,15 @@
+matching=fuzzy
+sort_order=score
+insensitive=true
+allow_images=true
+cache_file=/tmp/wofi-cache
+
+show=drun,run
+prompt=❯
+
+width=800
+height=400
+location=center
+lines=5
+
+term=kitty

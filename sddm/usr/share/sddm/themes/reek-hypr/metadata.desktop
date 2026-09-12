@@ -1,0 +1,11 @@
+[SddmGreeterTheme]
+Name=Reek Hypr
+Description=Minimal amber SDDM login screen with essential system status
+Author=Reek
+License=MIT
+Version=1.0
+MainScript=Main.qml
+ConfigFile=theme.conf
+Theme-Id=reek-hypr
+Theme-API=2.2
+QtVersion=6
